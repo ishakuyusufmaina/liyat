@@ -340,12 +340,28 @@ let sectionDoc = await getDoc(sectionRef);
          <option value="Christian">Christian</option>
     </select>
     </td>
+    <td class="psycho"></td>
     <!--td class="parent">
     ${parent? `<a href="parent/profile.html?pin=${parent.pin}">PIN:`+parent.pin+'<br>'+parent.name.toUpperCase()+"</a>"
     : 
     '<span >Link parent by</span><button class="pin-link">PIN</button> | <button class="match-link">matching</button>'}
     </td--> 
       `;
+    let psychoElm = row.querySelector(".psycho");
+    let domains = sections[result.section].psychometrics??[];
+    result.psychometrics??={};
+    domains.forEach(domain=>{
+      console.log(domain);      
+      let v = result.psychometrics[domain]??0;
+      let pElm = document.createElement("p");
+      pElm.innerHTML =`<input type="range" min="0" max="5" value="${v}" step="1"> ${domain} <span>(${v})</span>`
+      psychoElm.append(pElm);
+      pElm.querySelector("input").oninput = e=>{
+        let v = e.target.value;
+        pElm.querySelector("span").innerHTML = `(${v})`;
+        result.psychometrics[domain] = v;
+      }
+    })
     if (false/*!parent && result.id*/){
       row.querySelector(".parent > .pin-link").onclick = e=>{
         let pin = window.prompt("Enter PIN: ");
@@ -394,6 +410,7 @@ let sectionDoc = await getDoc(sectionRef);
        if (window.confirm("Are you sure you want to delete this student?")){
          let docId = result.id.replaceAll("/", "_");
          await deleteDoc(doc(db, schoolId, "db", "students", docId));
+         row.remove();
          alert("Done!");
        }
      }
