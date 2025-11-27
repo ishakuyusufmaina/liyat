@@ -213,9 +213,15 @@ console.log(id);
     function presentTable(data) {
       
       tb.innerHTML = "";
-      teacher.adminFunctions.section.resources.forEach(section=> {
-        presentRow(section, data[section]);
-      });
+      if (schoolId==id){
+        for (const section in data) {
+          presentRow(section, data[section]);
+        }
+      } else {
+        teacher.adminFunctions.section.resources.forEach(section=> {  
+          presentRow(section, data[section]);
+        }); 
+      }
 
       function presentRow(section, sectObj) {
        // try {
