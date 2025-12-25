@@ -1,2 +1,2 @@
 const schoolId = "noble";
-const schoolName = "NOBLE PEARLS ACADEMY";
+const schoolName = "NOBLE PEARLS INTERNATIONAL ACADEMY";
