@@ -283,6 +283,9 @@ let teachersDoc = await getDoc(doc(db, schoolId, "teachers"));
     //present each students' rc
     students.forEach(std=>{
      // console.log(std.religion);
+      let interp = interpret(std.score/std.sc, scoreInterpretations);
+      const g = interp.grade? interp.grade : grade(0, std.score/std.sc)
+  
       let cls = classSelect.value.toLowerCase()[0];      
       let reportCard = document.createElement("table");
       reportCard.innerHTML = `
@@ -319,7 +322,7 @@ let teachersDoc = await getDoc(doc(db, schoolId, "teachers"));
       </tr>
       <tr>
       <td>NO: IN CLASS: ${students.length}</td>      
-      <td>POSITION: ${toSuperscriptOrdinal(Number(std.position))}</td>
+      <td>POSITION: ${g}</td>
       </tr>
       </table> 
       </caption>
@@ -376,6 +379,7 @@ let teachersDoc = await getDoc(doc(db, schoolId, "teachers"));
         let t3 = Number(subjects[subj][termIndex].test3 ?? 0);
         //let score = t1 + t2 +t3 + Number(subjects[subj][termIndex].exam);
         let interp = interpret(total, scoreInterpretations);
+        
        // console.log(interp);
  //     subjects.forEach(subj=>{
         let row =document.createElement("tr");
