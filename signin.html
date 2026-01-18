@@ -15,7 +15,7 @@
 
 <!-- Dark theme -->
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
-  <title>Noble Pearls - Login</title>
+  <title id="title"></title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
  
   <style>
@@ -227,7 +227,7 @@ footer small {
 <body>
  
   <header >
-    <h1>Noble Pearls Academy</h1>
+    <h1 id="h1"></h1>
   </header>
    <main>
   <div class="card">
@@ -242,9 +242,12 @@ footer small {
   </div>
   </main>
  <footer>
-    <small>©Mainafly 2025</small>
+    <small>©Mainafly 2026</small>
   </footer>
     
+   <script src="config.js"></script>
+ <script src="batch2.js"></script>
+
     <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
@@ -252,19 +255,12 @@ footer small {
   import {getAuth, createUserWithEmailAndPassword, updateProfile, deleteUser, onAuthStateChanged, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
      //import {getDatabase, set, ref, onValue, child, get } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
         
-  const firebaseConfig = {
-    apiKey: "AIzaSyAeNrRGQpLaQ0fGDFOrpfQaD3t_k0akgIM",
-    authDomain: "sib-batch2.firebaseapp.com",
-    projectId: "sib-batch2",
-    storageBucket: "sib-batch2.firebasestorage.app",
-    messagingSenderId: "472226493442",
-    appId: "1:472226493442:web:78375bbe9fc1cabaa0e31b",
-    measurementId: "G-3T2QB03T3L"
-  };
+  
 
-
+h1.innerHTML = schoolName;
+  title.innerHTML = schoolName + " - Login";
      loginBtn.textContent = "Please wait..";
-  const schoolId = "noble";
+ 
     const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
       const auth = getAuth(app);

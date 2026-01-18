@@ -1,2 +1,2 @@
-const schoolId = "noble";
-const schoolName = "NOBLE PEARLS INTERNATIONAL ACADEMY";
+const schoolId = "grammar";
+const schoolName = "GRAMMAR COLLEGE KANO";
