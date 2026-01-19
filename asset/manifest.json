@@ -1,10 +1,10 @@
 {
-  "name": "Grammar College Kamo",
-  "short_name": "GCK",
-  "start_url": "/signin.html",
+  "name": "Liyat Academy Maiduguri",
+  "short_name": "Liyat",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0b3c7c",
+  "theme_color": "#1aa6d1",
   "icons": [
     {
       "src": "asset/favicon-32x32.png",
